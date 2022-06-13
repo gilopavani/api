@@ -2,12 +2,17 @@ import json
 from django.db import models
 from django.http import response
 from rest_framework import serializers
+from rest_framework import generics
 from rest_framework.decorators import api_view
 from todo.models import DatabaseTeste
 from todo.serializers import DataBaseSerializer
 from todo.serializers import SomaSerializer, MesSerializer
 from rest_framework.response import Response
 from rest_framework import status
+
+class apiListandCreate(generics.ListCreateAPIView):
+    queryset = DatabaseTeste.objects.all()
+    serializer = DataBaseSerializer
 
 @api_view(['GET'])
 def database_list(request):
@@ -24,6 +29,7 @@ def database_view(request, pk):
 
     serializer = DataBaseSerializer(base)
     return Response(serializer.data)
+
 
 @api_view(['GET'])
 def database_total(request):
