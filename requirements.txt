@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # This file may be used to create an environment using:
 # $ conda create --name <env> --file <this file>
 # platform: win-64
@@ -373,3 +374,10 @@ zope.event=4.5.0=py38_0
 zope.interface=5.3.0=py38h2bbff1b_0
 zstandard=0.17.0=pypi_0
 zstd=1.4.5=h04227a9_0
+=======
+Django==4.0.5
+django_heroku==0.3.1
+djangorestframework==3.13.1
+SQLAlchemy==1.4.7
+Collecting gunicorn==20.1.0
+>>>>>>> 31f4f65fd4dac9775186a642c46d7ee6fe2fa896
