@@ -61,5 +61,30 @@ def database_mes(request):
         'meses': meses,
         'valores':valores
     }
-    serializer = MesSerializer(ba)
+    serializer = MesSerializer(ba,)
     return Response(serializer.data)
+
+def database_tipo(request):
+    base = DatabaseTeste.objects.all()
+    meses =[]
+    presencial = [0,0,0,0,0,0,0,0,0,0,0,0]
+    online = [0,0,0,0,0,0,0,0,0,0,0,0]
+    vendas = 0
+    ticket = 0
+    for b in base:
+        meses.append(b.mes_referencia)
+        if(b.mes_referencia == '01/12/2021'):
+            break
+    for b in base:
+        if(b.mes_referencia == 'Online'):
+            
+        valores[int(b.mes_referencia[3:5])-1] += int(b.total_vendas)
+    for v in valores:
+        v = str(v)
+    ba = {
+        'meses': meses,
+        'valores':valores
+    }
+    serializer = MesSerializer(ba,)
+    return Response(serializer.data)
+
