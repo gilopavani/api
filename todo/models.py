@@ -164,7 +164,7 @@ class soma_valores(models.Model):
 class vendidos_mes(models.Model):
     meses = models.JSONField()
     valores = models.JSONField()
-    tipo =JSONField()
+    categoria =JSONField()
 
     class Meta:
         managed = False

@@ -90,7 +90,7 @@ DATABASES = {
     }
 }
 
-
+#Configurando acesso por url_heroku
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
@@ -126,6 +126,7 @@ USE_I18N = True
 USE_TZ = True
 
 WHITENOISE_AUTOREFRESH = True
+#Removendo visualização rest_framework renderizando json
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
@@ -134,7 +135,7 @@ REST_FRAMEWORK = {
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
-
+#heroku config's
 STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 django_heroku.settings(locals())

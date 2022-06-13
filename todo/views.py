@@ -10,15 +10,15 @@ from todo.serializers import SomaSerializer, MesSerializer
 from rest_framework.response import Response
 from rest_framework import status
 
-class apiListandCreate(generics.ListCreateAPIView):
-    queryset = DatabaseTeste.objects.all()
-    serializer = DataBaseSerializer
+# Get inicial com todos dados
 
 @api_view(['GET'])
 def database_list(request):
     base = DatabaseTeste.objects.all()
     serializer = DataBaseSerializer(base, many=True)
     return Response(serializer.data)
+
+#get por chave, nao utilizado
 
 @api_view(['GET'])
 def database_view(request, pk):
@@ -30,6 +30,7 @@ def database_view(request, pk):
     serializer = DataBaseSerializer(base)
     return Response(serializer.data)
 
+#get total de vendas
 
 @api_view(['GET'])
 def database_total(request):
@@ -48,6 +49,8 @@ def database_total(request):
     }
     serializer = SomaSerializer(ba)
     return Response(serializer.data)
+
+# get vendas por mes
 
 @api_view(['GET'])
 def database_mes(request):
@@ -69,6 +72,8 @@ def database_mes(request):
     }
     serializer = MesSerializer(ba,)
     return Response(serializer.data)
+
+# get venda por modelo
     
 @api_view(['GET'])
 def database_tipo(request):
@@ -89,7 +94,7 @@ def database_tipo(request):
     ba = {
         'meses': meses,
         'valores':[presencial,online],
-        'tipo': ['Presencial', 'Online']
+        'categoria': ['Presencial', 'Online']
     }
     
     serializer = MesSerializer(ba)
