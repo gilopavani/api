@@ -162,8 +162,8 @@ class soma_valores(models.Model):
         db_table = 'soma_valores'
 
 class vendidos_mes(models.Model):
-    meses = JSONField(encoder=False)
-    valores =JSONField(models.TextField(blank=True, null=True))
+    meses = models.JSONField()
+    valores = models.JSONField()
     tipo =JSONField()
 
     class Meta:

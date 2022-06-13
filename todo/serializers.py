@@ -17,9 +17,9 @@ class SomaSerializer(serializers.ModelSerializer):
 class MesSerializer(serializers.ModelSerializer):
     class Meta:
         model = vendidos_mes
-        fields = ['meses','valores']
+        fields = ['meses','valores','tipo']
 
-class MesSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = vendidos_mes
-        fields = ['meses','valores']
+# class MesSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = vendidos_mes
+#         fields = ['meses','valores']
